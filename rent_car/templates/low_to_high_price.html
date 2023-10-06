@@ -1,0 +1,76 @@
+<div class="col-sm-12 col-xs-12 pjCrPanelRight">
+    {% for car in cars %}
+        <ul class="list-group" data-car-type="{{ car.type }}" data-price="{{ car.price_per_day }}">
+            <li class="list-group-item pjCrProduct">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ps-0">
+                        <img src="{{ car.image.url }}"
+                             alt="" class="img-responsive">
+                    </div><!-- /.col-lg-4 col-md-4 col-sm-4 col-xs-12 -->
+
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <br>
+                        <p class="lead">{{ car.type }}</p>
+
+                        <dl>
+                            <dt>Example of this range:</dt>
+                            <dd>{{ car.type_rate.first.make }}</dd>
+                        </dl>
+
+                        <ul class="list-inline">
+                            <li class="bg-primary pjCrBgPrimary" title="Number of passengers">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"><i
+                                                class="fa fa-user"></i></span>
+
+                                {{ car.num_of_passenger }}
+                            </li>
+
+                            <li class="bg-primary pjCrBgPrimary" title="Number of bags allowed">
+                                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"><i
+                                                class="fa fa-suitcase"></i></span>
+
+                                {{ car.piece_of_bag }}
+                            </li>
+
+                            <li class="bg-primary pjCrBgPrimary" title="Number of doors">
+                                        <span class="glyphicon glyphicon-modal-window" aria-hidden="true"><i
+                                                class="fa fa-taxi"></i></span>
+
+                                {{ car.num_of_door }}
+                            </li>
+
+                            <li class="bg-primary pjCrBgPrimary" title="Transmission">
+                                        <span class="glyphicon glyphicon-cog" aria-hidden="true"><i
+                                                class="fa fa-cog"></i></span>
+
+                                {{ car.transmission }}
+                            </li>
+                        </ul><!-- /.list-inline -->
+
+                        <p>{{ car.description }}</p>
+                    </div><!-- /.col-lg-5 col-md-5 col-sm-5 col-xs-12 -->
+
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <br>
+
+                        <div class="well well-sm text-center">
+                            <p>Total Price:</p>
+                            <p><strong>{{ car.price_per_day }} $</strong></p>
+                        </div><!-- /.well well-sm text-center -->
+                        <form id="car-form">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ car.id }}" id="car-id">
+                            <input type="hidden" value="{% url 'car-list' %}" id="car-url">
+                            <button type="submit"
+                                    class="btn btn-default btn-block text-uppercase pjCrBtntDefault crBtnContinue"
+                                    id="car-submit">
+                                Continue
+                            </button>
+                            {#                                            <a href="">Continue</a>#}
+                        </form>
+                    </div><!-- /.col-lg-3 col-md-3 col-sm-3 col-xs-12 -->
+                </div><!-- /.row -->
+            </li><!-- /.list-group-item pjCrProduct -->
+        </ul>
+    {% endfor %}
+</div>

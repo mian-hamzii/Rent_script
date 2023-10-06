@@ -1,0 +1,350 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="container mt-2 border rounded px-0 section-width">
+        <div class="header py-3 ps-3 ">
+            <select class="form-select ms-2 h-75 w-auto stepSelect" aria-label="Default select example">
+                <option disabled>Step 1 - When And Where</option>
+                <option value="1" disabled>Step 2 - Choose A Car</option>
+                <option value="2" selected>Step 3 - Price And Extras</option>
+                <option value="3" disabled>Step 4 - Checkout</option>
+                <option value="4" disabled>Step 5 - Finish</option>
+            </select>
+        </div>
+        <div class="panel-body pjCrBody">
+            <div class="row m-0 py-3">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-xs ps-0 ">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Booking details</h1><!-- /.panel-title -->
+                        </div><!-- /.panel-heading -->
+
+                        <div class="panel-body">
+                            <p class="clearfix">
+                                <strong>Time and Place</strong>
+                                <a href="{% url 'index' %}" id="crBtnWhen"
+                                   class="pull-right text-capitalize pjCrColorPrimary">Change</a>
+                            </p>
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12"><span
+                                        class="text-muted">Pick-up:</span>
+                                </div>
+                                <!-- /.col-lg-5 col-md-5 col-sm-5 col-xs-12 -->
+
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                    {{ form_data.pickup_location }}<br>
+                                    {{ form_data.pickup_date }}, {{ form_data.pickup_time }}
+                                </div><!-- /.col-lg-7 col-md-7 col-sm-7 col-xs-12 -->
+                            </div><!-- /.row -->
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12"><span
+                                        class="text-muted">Return:</span>
+                                </div>
+                                <!-- /.col-lg-5 col-md-5 col-sm-5 col-xs-12 -->
+
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                    {{ form_data.return_location }}<br>
+                                    {{ form_data.return_date }}, {{ form_data.return_time }}
+                                </div><!-- /.col-lg-7 col-md-7 col-sm-7 col-xs-12 -->
+                            </div><!-- /.row -->
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12"><span
+                                        class="text-muted">Rental Duration:</span></div>
+                                <!-- /.col-lg-5 col-md-5 col-sm-5 col-xs-12 -->
+
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">{{ form_data.days }}
+                                    day{{ form_data.days|pluralize:'s' }}</div>
+                                <!-- /.col-lg-7 col-md-7 col-sm-7 col-xs-12 -->
+                            </div><!-- /.row -->
+                            <br>
+                            <p class="clearfix">
+                                <strong>Car Type</strong>
+
+                                <a href="#" id="crBtnChoise"
+                                   class="pull-right text-capitalize pjCrColorPrimary">Change</a>
+                            </p>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <img src="{{ car.image.url }}"
+                                         alt="" class="img-responsive">
+                                </div><!-- /.col-lg-4 col-md-4 col-sm-4 col-xs-4 -->
+
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                    <p><strong>{{ car.type }}</strong></p>
+                                    <p>{{ car.description }}</p>
+                                </div><!-- /.col-lg-8 col-md-8 col-sm-8 col-xs-8 -->
+                                <button type="button" id="crBtnConditions" class="btn btn-link pjCrBtnTerms"
+                                        data-toggle="modal">Rental terms
+                                </button>
+                            </div>
+                        </div><!-- /.panel-body -->
+                    </div><!-- /.panel panel-default -->
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pjCrPanelRight">
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Details</h1><!-- /.panel-title -->
+                        </div><!-- /.panel-heading -->
+
+                        <div class="panel-body">
+
+                            <ul class="list-group" id="crFormExtras">
+                                {% for ex in extra %}
+                                    <li class="list-group-item pjCrProductExtra">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
+                                                <h4 style="font-size: 18px;margin-top: 10px;
+                                                           margin-bottom: 10px;">{{ ex.name }}</h4>
+                                            </div><!-- /.col-lg-4 col-md-4 col-sm-3 col-xs-12 -->
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-5">&nbsp;</div>
+                                            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-7">
+                                                <h5 class="text-right" style="font-size: 14px;margin-top: 10px;
+                                                    margin-bottom: 10px;">
+                                                    <strong>{{ ex.price }} $</strong>
+                                                </h5>
+                                                <span class="pull-right"
+                                                      style="font-size: 14px">{{ ex.price_type }}</span>
+                                            </div><!-- /.col-lg-4 col-md-4 col-sm-5 col-xs-7 -->
+
+                                            <div class="col-lg-3 col-md-2 col-sm-2 col-xs-12">
+                                                <button class="addExtra btn btn-default text-capitalize pull-right pjCrBtntDefault pjCrBtnAdd crBtnAdd"
+                                                        id="addExtra" value="{{ ex.price }}">
+
+                                                    <input type="hidden" value="{% url 'detail' ex.id %}"
+                                                           id="extra-url">
+
+                                                    <i class="fa-solid fa-plus"></i>
+                                                    Add
+                                                </button>
+                                                <button class=" removeExtra  btn btn-default d-none text-capitalize pull-right pjCrBtntDefault pjCrBtnAdd crBtnAdd"
+                                                        id="addExtra1" value="{{ ex.price }}">
+                                                    <input type="hidden" value="remove">
+                                                    <i class="fa-solid fa-minus"></i>
+                                                    remove
+                                                </button>
+                                            </div>
+                                            <!-- /.col-lg-2 col-md-2 col-sm-2 col-xs-12 -->
+                                        </div><!-- /.row -->
+                                    </li>
+                                {% endfor %}
+                            </ul><!-- /.list-group -->
+
+                            <div class="table-responsive" id="table-receipt">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <strong>Rental Duration</strong>
+                                        </td>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+                                            {{ form_data.days }}
+                                            day{{ form_data.days|pluralize:'s' }}
+                                        </td>
+                                    </tr>
+                                    <tr style="display:table-row">
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><strong>Price per
+                                            day</strong><br>
+                                            {{ form_data.days }}
+                                            day{{ form_data.days|pluralize:'s' }} x {{ car.price_per_day }} $
+                                        </td>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+                                            {{ day }} $
+                                        </td>
+                                    </tr>
+                                    <tr style="display:none">
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><strong>Price per
+                                            hour</strong><br>
+                                        </td>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+                                            0.00 $
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <strong>Car rental fee</strong><br>{{ car.price_per_day }} $ + 0.00 $
+                                        </td>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">{{ car.price_per_day }}
+                                            $
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <strong>Sub-total</strong>
+                                        </td>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">{{ day }} $</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <strong>Extras' price</strong>
+                                        </td>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><span id="extraAdd">0.00</span>
+                                            $
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <strong class="text-danger pjCrColorPrimary">Total Price</strong>
+                                        </td>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+                                            <span>{{ day }}</span> $
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                            <strong>Required deposit</strong>
+                                            <br>
+                                            10% of 74.00 $
+                                        </td>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">7.40 $</td>
+                                    </tr>
+                                    </tbody>
+                                </table><!-- /.table -->
+                            </div><!-- /.table-responsive -->
+                            <input type="button" value="Continue" id="button-id"
+                                   class="btn btn-default text-uppercase quote-button pjCrBtntDefault crBtnCheckout">
+                        </div><!-- /.panel-body -->
+                    </div><!-- /.panel panel-default -->
+                </div>
+            </div>
+            <section id="show-data">
+                <form action="{% url 'save-data' %}" id="crCheckoutForm" name="crCheckoutForm" class="show-dataa"
+                      method="post"
+                      role="form" data-toggle="validator" novalidate="novalidate">
+                    {% csrf_token %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading headingBgColor">
+                            <h2 class="panel-title text-muted">Personal Details</h2><!-- /.panel-title text-muted -->
+                        </div><!-- /.panel-heading -->
+
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Name <span
+                                                class="text-danger">*</span></label>
+
+                                        {{ form.name }}
+
+                                        <div class="help-block with-errors">
+                                            <ul class="list-unstyled"></ul>
+                                        </div>
+                                    </div><!-- /.form-group -->
+                                </div><!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="" class="control-label">E-Mail <span
+                                                class="text-danger">*</span></label>
+
+                                        {{ form.email }}
+                                        <div class="help-block with-errors">
+                                            <ul class="list-unstyled"></ul>
+                                        </div>
+                                    </div><!-- /.form-group -->
+                                </div><!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Telephone Number <span
+                                                class="text-danger">*</span></label>
+                                        {#                                        <input type="text" name="c_name" class="form-control required"#}
+                                        {#                                               data-msg-required="Name is required">#}
+                                        {{ form.phone_number }}
+                                        <div class="help-block with-errors">
+                                            <ul class="list-unstyled"></ul>
+                                        </div>
+                                    </div><!-- /.form-group -->
+                                </div><!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.panel-body -->
+                    </div><!-- /.panel panel-default -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading headingBgColor">
+                            <h2 class="panel-title text-muted">Payment Method </h2><!-- /.panel-title text-muted -->
+                        </div><!-- /.panel-heading -->
+
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="" class="control-label">Payment Method <span
+                                                class="text-danger">*</span></label>
+                                        {{ form.payment }}
+                                        {#                                                                                <select name="payment_method" class="form-control required"#}
+                                        {#                                                                                        data-msg-required="Payment Method is required">#}
+                                        {#                                                                                    <option value="">-- Select Payment Method --</option>#}
+                                        {#                                                                                    <optgroup label="Online payment gateway">#}
+                                        {#                                                                                        <option value="paypal">PayPal</option>#}
+                                        {#                                                                                    </optgroup>#}
+                                        {#                                                                                    <optgroup label="Offline payment">#}
+                                        {#                                                                                        <option value="cash">Cash</option>#}
+                                        {#                                                                                    </optgroup>#}
+                                        {#                                                                                </select>#}
+                                        <div class="help-block with-errors">
+                                            <ul class="list-unstyled"></ul>
+                                        </div>
+                                    </div><!-- /.form-group -->
+                                </div><!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+                            </div><!-- /.row -->
+
+                            <br>
+
+                            <div id="crBankData" style="display:none">
+                                <div class="crLeft100">
+                                    <p>
+                                        <strong>Bank Account </strong>
+                                    </p>
+                                    <p>Send payment to: ABCD 1234 XYZL 5678</p>
+                                </div>
+                            </div>
+
+
+                        </div><!-- /.panel-body -->
+                    </div><!-- /.panel panel-default -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading headingBgColor">
+                            <h2 class="panel-title text-muted">Rental terms</h2><!-- /.panel-title text-muted -->
+                        </div><!-- /.panel-heading -->
+
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" id="termsCheckbox" name="c_agree" value="1"
+                                                  class="required"
+                                                  data-msg-required="You have to agree to the Booking Conditions"> I
+                                        have read and agree to the rental terms.</label>
+                                    <div class="help-block with-errors">
+                                        <ul class="list-unstyled"></ul>
+                                    </div>
+                                </div><!-- /.checkbox -->
+                            </div><!-- /.form-group -->
+                            <a href="#" class="pjCrColorPrimary" data-toggle="modal" data-target="#myModal"
+                               style="text-decoration: none;">Click here
+                                to view the rental terms.</a>
+                            <br>
+                            <br>
+                            <input type="button" value="Back" id="crBtnBack"
+                                   class="btn btn-default text-capitalize pjCrBtntDefault">
+                            <input type="submit" value="Confirm Booking"
+                                   id="crBtnConfirm"
+                                   class="btn btn-default pull-right text-capitalize pjCrBtntDefault crBtnConfirm"
+                                   disabled>
+                            <div class="crError text-danger text-center" style="display: none;"></div>
+                        </div><!-- /.panel-body -->
+                    </div><!-- /.panel panel-default -->
+                </form>
+            </section>
+        </div>
+    </section>
+{#    <script>#}
+{#        $(document).ready(function () {#}
+{#            $('#rCheckoutForm').submit(function () {#}
+{#                $("#crCheckoutForm :disabled").removeAttr('disabled');#}
+{#            });#}
+{#        });#}
+{#    </script>#}
+{% endblock %}

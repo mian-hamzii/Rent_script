@@ -1,0 +1,315 @@
+.section-width {
+    max-width: 992px !important;
+}
+
+.header {
+    background-color: #f5f5f5;
+}
+
+.input-group-append {
+    cursor: pointer;
+}
+
+.quote-button {
+    background: rgb(64, 152, 226) !important;
+    border-color: #1b6aac !important;
+    color: #fff !important;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.blue-icon {
+    color: rgb(64, 152, 226) !important;
+}
+
+.stepSelect {
+    border-color: #bebabb !important;
+    color: #71767a !important;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(253, 253, 253, 1) 27%, rgba(248, 246, 247, 1) 57%, rgba(245, 241, 240, 1) 100%) !important;
+}
+
+.stepSelect:hover {
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(253, 253, 253, 1) 27%, rgba(248, 246, 247, 1) 57%, rgba(245, 241, 240, 1) 100%) !important;
+
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    /*background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(242, 242, 242, 1) 100%);*/
+}
+
+.headingBgColor {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(242, 242, 242, 1) 100%) !important;
+}
+
+.pjCrFormCheckout .panel-title {
+    color: #2d85cd !important;
+    font-weight: normal;
+}
+
+.panel-default {
+    border-color: #ddd;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel-title {
+    color: #35393a;
+    font-weight: bold;
+}
+
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.lead {
+    margin-bottom: 20px !important;
+    font-size: 16px;
+    font-weight: 400 !important;
+    line-height: 1.4;
+}
+
+.pjCrProduct {
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.list-group {
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd !important;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+.list-inline > li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+}
+
+.bg-primary {
+    color: #fff;
+    background-color: #337ab7;
+}
+
+.well-sm {
+    padding: 9px;
+    border-radius: 3px;
+}
+
+.well {
+    height: 90px;
+    /*padding: 19px;*/
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.pjCrProduct .pjCrBtntDefault {
+    padding: 6px 0;
+    border-color: #1b6aac;
+    color: #fff;
+    background: linear-gradient(to bottom, rgba(64, 152, 226, 1) 0%, rgba(46, 134, 208, 1) 100%);
+}
+
+input.pjCrBtntDefault {
+    border-color: #1b6aac !important;
+    color: #fff !important;
+    background: linear-gradient(to bottom, rgba(64, 152, 226, 1) 0%, rgba(46, 134, 208, 1) 100%) !important;
+}
+
+button.pjCrBtntDefault {
+    border-color: #1b6aac !important;
+    color: #fff !important;
+    background: linear-gradient(to bottom, rgba(64, 152, 226, 1) 0%, rgba(46, 134, 208, 1) 100%) !important;
+}
+
+
+.colorPrimary {
+    color: #0d6efd !important;
+    text-decoration: none !important;
+}
+
+.pjCrPanelRight {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.border-red {
+    border-color: red !important;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: #337ab7;
+    border-radius: 0;
+    text-decoration: none !important;
+    text-align: start !important;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+/*////////////// Final_page///////////*/
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.text-success, p {
+    color: #2c2d2f !important;
+}
+
+.pjCrProductExtra {
+    color: #6a7579 !important;
+}
+
+.list-group {
+    padding-left: 0;
+    margin-bottom: 20px !important;
+}
+
+.pjCrBtnAdd {
+    padding: 6px 8px !important;
+}
+
+#show-data {
+    display: none;
+}
+
+#crFormExtras {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .form-inline .form-control {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+    }
+}
+
+@media (min-width: 768px) {
+    .form-inline .form-group {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+    }
+}
+
+@media (min-width: 768px) {
+    .lead {
+        font-size: 21px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .section-width {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        width: auto !important;
+
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .first-input-page {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+
+}

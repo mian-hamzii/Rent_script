@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for rate in typerate_list %}
+        {{ rate.type }}
+        {{ rate.image }}
+        {{ rate.num_of_door }}
+        {{ rate.num_of_passenger }}
+        {{ rate.piece_of_bag }}
+        {{ rate.price_per_day }}
+        {{ rate.price_per_hour }}
+        {{ rate.description }}
+
+    {% endfor %}
+{% endblock %}

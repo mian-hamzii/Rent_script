@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="container mt-2 border rounded px-0 section-width">
+        <div class="header py-3 ps-3 ">
+            <select class="form-select ms-2 h-75 w-auto stepSelect" aria-label="Default select example">
+                <option selected>Step 1 - When And Where</option>
+                <option value="1" disabled>Step 2 - Choose A Car</option>
+                <option value="2" disabled>Step 3 - Price And Extras</option>
+                <option value="3" disabled>Step 4 - Checkout</option>
+                <option value="4" disabled>Step 5 - Finish</option>
+            </select>
+        </div>
+        <div class="panel-body text-center pjCrBody">
+            <div class="text-success text-center">
+                <p>Your reservation has been successfully sent to the administrator.</p>
+                Your reservation ID is 000003
+            </div>
+        </div>
+        <div class="panel-footer clearfix text-center pjCpbFooter">
+            <a href="{% url 'index' %}">
+                <button id="crBtnStartOver" class="btn btn-default text-capitalize pjCrBtntDefault crBtnStartOver"
+                        type="button">Start New Reservation
+                </button>
+            </a>
+        </div>
+    </section>
+{% endblock %}

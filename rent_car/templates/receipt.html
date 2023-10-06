@@ -1,0 +1,69 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+    <tbody>
+    <tr>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+            <strong>Rental Duration</strong>
+        </td>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+            {{ receipt_data.days }}
+            day{{ receipt_data.days|pluralize:'s' }}
+        </td>
+    </tr>
+    <tr style="display:table-row">
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><strong>Price per
+            day</strong><br>
+            {{ receipt_data.days }}
+            day{{ receipt_data.days|pluralize:'s' }} x {{ receipt_data.price }} $
+        </td>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+            {{ receipt_data.day }} $
+        </td>
+    </tr>
+    <tr style="display:none">
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><strong>Price per
+            hour</strong><br>
+        </td>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+            0.00 $
+        </td>
+    </tr>
+    <tr>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+            <strong>Car rental fee</strong><br>{{ receipt_data.price }} $ + 0.00 $
+        </td>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">{{ receipt_data.price }}
+            $
+        </td>
+    </tr>
+    <tr>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+            <strong>Sub-total</strong>
+        </td>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">{{ receipt_data.day }} $</td>
+    </tr>
+    <tr>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+            <strong>Extras' price</strong>
+        </td>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><span id="extraAdd">{{ receipt_data.extra }}</span>
+            $
+        </td>
+    </tr>
+    <tr>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+            <strong class="text-danger pjCrColorPrimary">Total Price</strong>
+        </td>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+            <span id="totalPrice">{{ receipt_data.total }}</span> $
+        </td>
+    </tr>
+    <tr>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+            <strong>Required deposit</strong>
+            <br>
+            10% of 74.00 $
+        </td>
+        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">7.40 $</td>
+    </tr>
+    </tbody>
+</table>

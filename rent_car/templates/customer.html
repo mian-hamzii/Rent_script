@@ -1,0 +1,127 @@
+<section id="show-data">
+    <form action="{% url 'save-data' %}" id="crCheckoutForm" name="crCheckoutForm" class="show-dataa"
+          method="post"
+          role="form" data-toggle="validator" novalidate="novalidate">
+        {% csrf_token %}
+        <div class="panel panel-default">
+            <div class="panel-heading headingBgColor">
+                <h2 class="panel-title text-muted">Personal Details</h2><!-- /.panel-title text-muted -->
+            </div><!-- /.panel-heading -->
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="" class="control-label">Name <span
+                                    class="text-danger">*</span></label>
+
+                            {{ form.name }}
+
+                            <div class="help-block with-errors">
+                                <ul class="list-unstyled"></ul>
+                            </div>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="" class="control-label">E-Mail <span
+                                    class="text-danger">*</span></label>
+
+                            {{ form.email }}
+                            <div class="help-block with-errors">
+                                <ul class="list-unstyled"></ul>
+                            </div>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="" class="control-label">Telephone Number <span
+                                    class="text-danger">*</span></label>
+                            {#                                        <input type="text" name="c_name" class="form-control required"#}
+                            {#                                               data-msg-required="Name is required">#}
+                            {{ form.phone_number }}
+                            <div class="help-block with-errors">
+                                <ul class="list-unstyled"></ul>
+                            </div>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.panel-body -->
+        </div><!-- /.panel panel-default -->
+        <div class="panel panel-default">
+            <div class="panel-heading headingBgColor">
+                <h2 class="panel-title text-muted">Payment Method </h2><!-- /.panel-title text-muted -->
+            </div><!-- /.panel-heading -->
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="" class="control-label">Payment Method <span
+                                    class="text-danger">*</span></label>
+                            {{ form.payment }}
+                            {#                                                                                <select name="payment_method" class="form-control required"#}
+                            {#                                                                                        data-msg-required="Payment Method is required">#}
+                            {#                                                                                    <option value="">-- Select Payment Method --</option>#}
+                            {#                                                                                    <optgroup label="Online payment gateway">#}
+                            {#                                                                                        <option value="paypal">PayPal</option>#}
+                            {#                                                                                    </optgroup>#}
+                            {#                                                                                    <optgroup label="Offline payment">#}
+                            {#                                                                                        <option value="cash">Cash</option>#}
+                            {#                                                                                    </optgroup>#}
+                            {#                                                                                </select>#}
+                            <div class="help-block with-errors">
+                                <ul class="list-unstyled"></ul>
+                            </div>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-lg-3 col-md-3 col-sm-6 col-xs-12 -->
+                </div><!-- /.row -->
+
+                <br>
+
+                <div id="crBankData" style="display:none">
+                    <div class="crLeft100">
+                        <p>
+                            <strong>Bank Account </strong>
+                        </p>
+                        <p>Send payment to: ABCD 1234 XYZL 5678</p>
+                    </div>
+                </div>
+
+
+            </div><!-- /.panel-body -->
+        </div><!-- /.panel panel-default -->
+
+        <div class="panel panel-default">
+            <div class="panel-heading headingBgColor">
+                <h2 class="panel-title text-muted">Rental terms</h2><!-- /.panel-title text-muted -->
+            </div><!-- /.panel-heading -->
+
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label><input type="checkbox" id="termsCheckbox" name="c_agree" value="1"
+                                      class="required"
+                                      data-msg-required="You have to agree to the Booking Conditions"> I
+                            have read and agree to the rental terms.</label>
+                        <div class="help-block with-errors">
+                            <ul class="list-unstyled"></ul>
+                        </div>
+                    </div><!-- /.checkbox -->
+                </div><!-- /.form-group -->
+                <a href="#" class="pjCrColorPrimary" data-toggle="modal" data-target="#myModal"
+                   style="text-decoration: none;">Click here
+                    to view the rental terms.</a>
+                <br>
+                <br>
+                <input type="button" value="Back" id="crBtnBack"
+                       class="btn btn-default text-capitalize pjCrBtntDefault">
+                <input type="submit" value="Confirm Booking" id="crBtnConfirm"
+                       class="btn btn-default pull-right text-capitalize pjCrBtntDefault crBtnConfirm"
+                       disabled>
+
+                <div class="crError text-danger text-center" style="display: none;"></div>
+            </div><!-- /.panel-body -->
+        </div><!-- /.panel panel-default -->
+    </form>
+</section>

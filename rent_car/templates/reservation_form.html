@@ -1,0 +1,357 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div style="max-width: 992px; margin: 0 auto">
+        <div>
+            <div id="pjWrapperCarRental_theme1">
+                <div id="crContainer" class="crContainer">
+                    <div class="container-fluid pjCrContainer">
+                        <div class="panel panel-default">
+                            <div class="panel-heading clearfix pjCrHeading">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="btn-group pjCrNav">
+                                            <button type="button"
+                                                    class="btn btn-default dropdown-toggle text-capitalize pjCrBtnNav"
+                                                    data-toggle="dropdown" aria-expanded="false">
+                                                Step 1 of 5 - When and Where
+                                                <span class="caret"></span></button>
+
+                                            <ul class="dropdown-menu text-uppercase" role="menu">
+                                                <li><a href="javascript:void(0);" rel="1"
+                                                       class="crBreadcrumbsEl btn btn-link pjCrBtn pjCrBtnActive">Step 1
+                                                    - When And Where</a></li>
+                                                <li><a href="javascript:void(0);" rel="2"
+                                                       class="crBreadcrumbsEl btn btn-link pjCrBtn disabled"
+                                                       style="cursor: default;">Step 2 - Choose A Car</a></li>
+                                                <li><a href="javascript:void(0);" rel="3"
+                                                       class="crBreadcrumbsEl btn btn-link pjCrBtn disabled"
+                                                       style="cursor: default;">Step 3 - Price And Extras</a></li>
+                                                <li><a href="javascript:void(0);" rel="4"
+                                                       class="crBreadcrumbsEl btn btn-link pjCrBtn disabled"
+                                                       style="cursor: default;">Step 4 - Checkout</a></li>
+                                                <li><a href="javascript:void(0);" rel="5"
+                                                       class="crBreadcrumbsEl btn btn-link pjCrBtn disabled"
+                                                       style="cursor: default;">Step 5 - Finish</a></li>
+                                            </ul>
+                                        </div><!-- /.btn-group pjCrNav -->
+                                    </div><!-- /.col-lg-6 col-md-6 col-sm-6 col-xs-12 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.panel-heading clearfix pjCrHeading -->
+                            <div class="panel-body pjCrBody">
+                                <form action="#" id="crFormSearch" method="get">
+                                    <div id="pjCrCalendarLocale" style="display: none;"
+                                         data-months="January_February_March_April_May_June_July_August_September_October_November_December"
+                                         data-days="Su_Mo_Tu_We_Th_Fr_Sa" data-fday="1"></div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pjCrMinSize340">
+                                            <div class="form-group pjCrFormGroup">
+                                                <div class="row">
+                                                    <label for=""
+                                                           class="control-label col-lg-12 col-md-12 col-sm-12 col-xs-12">Pick-up
+                                                        Date/Time</label>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                        <div id="pjCrDatePickerFrom"
+                                                             class="input-group pjCrDatePicker pjCrDatePickerFrom"
+                                                             data-min="2023-08-28">
+										<span class="input-group-addon pjCrCursorPointer">
+											<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+										</span>
+
+                                                            <input type="text" id="cr_date_from" name="date_from"
+                                                                   class="form-control" value="29.08.2023"
+                                                                   readonly="readonly">
+                                                        </div><!-- /.input-group pjCrDatePicker pjCrDatePickerFrom -->
+                                                    </div><!-- /.col-lg-6 col-md-6 col-sm-6 col-xs-6 -->
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                        <div class="input-group pjCrTimePicker pjCrTimePickerFrom"
+                                                             data-rel="from">
+										<span class="input-group-addon pjCrCursorPointer">
+											<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+										</span>
+                                                            <input type="text" class="form-control" value="09:00"
+                                                                   readonly="">
+                                                        </div>
+                                                    </div>
+                                                    <input type="hidden" id="cr_hour_from" name="hour_from" value="09">
+                                                    <input type="hidden" id="cr_minutes_from" name="minutes_from"
+                                                           value="00">
+                                                </div><!-- /.row -->
+                                            </div><!-- /.form-group pjCrFormGroup -->
+                                        </div><!-- /.col-lg-6 col-md-6 col-sm-6 col-xs-12 pjCrMinSize340 -->
+
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pjCrMinSize340">
+                                            <div class="form-group pjCrFormGroup">
+                                                <div class="row">
+                                                    <label for=""
+                                                           class="control-label col-lg-12 col-md-12 col-sm-12 col-xs-12">Return
+                                                        Date/Time</label>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                        <div id="pjCrDatePickerTo"
+                                                             class="input-group pjCrDatePicker pjCrDatePickerTo"
+                                                             data-min="2023-08-29">
+										<span class="input-group-addon pjCrCursorPointer">
+											<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+										</span>
+
+                                                            <input type="text" id="cr_date_to" name="date_to"
+                                                                   class="form-control" value="30.08.2023"
+                                                                   readonly="readonly">
+                                                        </div><!-- /.input-group pjCrDatePicker pjCrDatePickerTo -->
+                                                    </div><!-- /.col-lg-6 col-md-6 col-sm-6 col-xs-6 -->
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                        <div class="input-group pjCrTimePicker pjCrTimePickerTo"
+                                                             data-rel="to">
+										<span class="input-group-addon pjCrCursorPointer">
+											<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+										</span>
+
+                                                            <input type="text" class="form-control" value="09:00"
+                                                                   readonly="">
+                                                        </div><!-- /.input-group timePick timePickFrom -->
+                                                    </div>
+                                                    <input type="hidden" id="cr_hour_to" name="hour_to" value="09">
+                                                    <input type="hidden" id="cr_minutes_to" name="minutes_to"
+                                                           value="00">
+                                                </div><!-- /.row -->
+                                            </div><!-- /.form-group pjCrFormGroup -->
+                                        </div><!-- /.col-lg-6 col-md-6 col-sm-6 col-xs-12 pjCrMinSize340 -->
+
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pjCrMinSize340">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <label for=""
+                                                           class="control-label col-lg-12 col-md-12 col-sm-12 col-xs-12">Pick-up
+                                                        location</label>
+
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <select name="pickup_id" id="cr_pickup_id" class="form-control">
+                                                            <option value="4">35 Walton Street, London</option>
+                                                            <option value="1">Hogarth Road, London</option>
+                                                        </select>
+                                                    </div><!-- /.col-lg-12 col-md-12 col-sm-12 col-xs-12 -->
+
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <br>
+
+                                                        <p>
+                                                            <span class="glyphicon glyphicon-map-marker"
+                                                                  aria-hidden="true"></span>
+                                                            Can't find the location?
+                                                            <a href="#" class="text-capitalize pjCrColorPrimary"
+                                                               data-toggle="modal" id="crBtnMap">View Map</a>
+                                                        </p>
+
+                                                    </div><!-- /.col-lg-12 col-md-12 col-sm-12 col-xs-12 -->
+                                                </div><!-- /.row -->
+                                            </div><!-- /.form-group -->
+                                        </div><!-- /.col-lg-6 col-md-6 col-sm-6 col-xs-12 pjCrMinSize340 -->
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pjCrMinSize340">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <label for=""
+                                                           class="control-label col-lg-12 col-md-12 col-sm-12 col-xs-12">Return
+                                                        location</label>
+
+                                                    <div id="crReturnBox"
+                                                         class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <select name="return_id" id="cr_return_id" class="form-control"
+                                                                disabled="disabled">
+                                                            <option value="4">35 Walton Street, London</option>
+                                                            <option value="1">Hogarth Road, London</option>
+                                                        </select>
+                                                    </div><!-- /.col-lg-12 col-md-12 col-sm-12 col-xs-12 -->
+
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="checkbox">
+                                                            <label for="cr_same_location">
+                                                                <input type="checkbox" name="same_location"
+                                                                       id="cr_same_location" value="1"
+                                                                       checked="checked"> Same as the pick-up location
+                                                            </label>
+                                                        </div><!-- /.checkbox -->
+                                                    </div><!-- /.col-lg-12 col-md-12 col-sm-12 col-xs-12 -->
+                                                </div><!-- /.row -->
+                                            </div><!-- /.form-group -->
+                                        </div><!-- /.col-lg-6 col-md-6 col-sm-6 col-xs-12 pjCrMinSize340 -->
+
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                            <button type="button" class="btn btn-default text-uppercase pjCrBtntDefault"
+                                                    id="crBtnQuote">Get A Quote Now
+                                            </button>
+                                        </div><!-- /.col-lg-12 col-md-12 col-sm-12 col-xs-12 -->
+                                    </div><!-- /.row -->
+
+                                    <div class="crError text-danger text-center" style="display: none;"></div>
+                                </form>
+                            </div><!-- /.panel-body pjCrBody -->
+                        </div><!-- /.panel panel-default -->
+                    </div><!-- /.container-fluid pjCrContainer --></div>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" style="z-index: 9999;">
+                        <div class="modal-content">
+                            <div class="modal-body"> Add your Booking Terms here. Lorem Ipsum is simply dummy text of
+                                the printing and typesetting industry. Lorem Ipsum has been the industry"s standard
+                                dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                                scrambled it to make a type specimen book. It has survived not only five centuries, but
+                                also the leap into electronic typesetting, remaining essentially unchanged. It was
+                                popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                                passages, and more recently with desktop publishing software like Aldus PageMaker
+                                including versions of Lorem Ipsum.
+                            </div><!-- /.modal-body -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default pjCrBtntDefault" data-dismiss="modal">
+                                    Close
+                                </button>
+                            </div><!-- /.modal-footer -->    </div><!-- /.modal-content -->    </div>
+                    <!-- /.modal-dialog -->    </div><!-- /.modal fade -->
+                <div class="modal fade" id="pjCrMapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" style="z-index: 9999;">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div id="pjCrMapCanvas" style="height: 450px;"></div>
+                            </div><!-- /.modal-body -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default pjCrBtntDefault" data-dismiss="modal">
+                                    Close
+                                </button>
+                            </div><!-- /.modal-footer -->    </div><!-- /.modal-content -->    </div>
+                    <!-- /.modal-dialog -->    </div><!-- /.modal fade -->    </div>
+        </div>
+        <script type="text/javascript" async=""
+                src="https://www.googletagmanager.com/gtag/js?id=G-NME5VTTGTT&amp;cx=c&amp;_slc=1"></script>
+        <script async="" src="//www.google-analytics.com/analytics.js"></script>
+        <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script>
+        <script>var pjQ = pjQ || {}, myCR;
+        (function () {
+            "use strict";
+            var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor),
+                isMSIE = function () {
+                    var ua = window.navigator.userAgent, msie = ua.indexOf("MSIE ");
+                    if (msie !== -1) {
+                        return true;
+                    }
+                    return false;
+                }, loadCssHack = function (url, callback) {
+                    var link = document.createElement("link");
+                    link.type = "text/css";
+                    link.rel = "stylesheet";
+                    link.href = url;
+                    document.getElementsByTagName("head")[0].appendChild(link);
+                    var img = document.createElement("img");
+                    img.onerror = function () {
+                        if (callback && typeof callback === "function") {
+                            callback();
+                        }
+                    };
+                    img.src = url;
+                }, loadRemote = function (url, type, callback) {
+                    if (type === "css" && isSafari) {
+                        loadCssHack(url, callback);
+                        return;
+                    }
+                    var _element, _type, _attr, scr, s, element;
+                    switch (type) {
+                        case "css":
+                            _element = "link";
+                            _type = "text/css";
+                            _attr = "href";
+                            break;
+                        case "js":
+                            _element = "script";
+                            _type = "text/javascript";
+                            _attr = "src";
+                            break;
+                    }
+                    scr = document.getElementsByTagName(_element);
+                    s = scr[scr.length - 1];
+                    element = document.createElement(_element);
+                    element.type = _type;
+                    if (type == "css") {
+                        element.rel = "stylesheet";
+                    }
+                    if (element.readyState) {
+                        element.onreadystatechange = function () {
+                            if (element.readyState == "loaded" || element.readyState == "complete") {
+                                element.onreadystatechange = null;
+                                if (callback && typeof callback === "function") {
+                                    callback();
+                                }
+                            }
+                        };
+                    } else {
+                        element.onload = function () {
+                            if (callback && typeof callback === "function") {
+                                callback();
+                            }
+                        };
+                    }
+                    element[_attr] = url;
+                    s.parentNode.insertBefore(element, s.nextSibling);
+                }, loadScript = function (url, callback) {
+                    loadRemote(url, "js", callback);
+                }, loadCss = function (url, callback) {
+                    loadRemote(url, "css", callback);
+                }, getSessionId = function () {
+                    return sessionStorage.getItem("session_id") == null ? "" : sessionStorage.getItem("session_id");
+                }, createSessionId = function () {
+                    if (getSessionId() == "") {
+                        sessionStorage.setItem("session_id", "o63t617g50ua0h61ksqg27bs30");
+                    }
+                }, options = {
+                    folder: "https://demo.phpjabbers.com/1693205716_444/",
+                    validation: {
+                        error_dates: "You can only rent a car at least 1 hour(s).",
+                        error_title: "You failed to correctly fill in the form:",
+                        error_email: "E-Mail is invalid",
+                        error_length: "You can only rent a car at least 1 day(s).",
+                    },
+                    booking_periods: "perday",
+                    min_hour: "24",
+                    message_1: "Booking has been added. Redirecting to PayPal...",
+                    message_2: "Booking has been added. Redirection to Authorize...",
+                    message_3: "Booking has been successfully added.",
+                    message_4: "Reservation failed to save",
+                    location_email: "Email",
+                    location_phone: "Phone",
+                    dateFormat: "d.m.Y",
+                    startDay: 1,
+                    dayNames: ["S", "M", "T", "W", "T", "F", "S"],
+                    monthNamesFull: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                    closeButton: "Close",
+                    pjLang: 0,
+                    momentDateFormat: "DD.MM.YYYY",
+                    time_format: "LT",
+                    google_api_key: "AIzaSyDVT0sA5KgqwhpwnFeaPKBJlfcx5kOLMt8"
+                };
+            loadScript("https://demo.phpjabbers.com/1693205716_444/third-party/storage_polyfill/1.0.0/storagePolyfill.min.js", function () {
+                createSessionId();
+                options.session_id = getSessionId();
+                loadScript("https://demo.phpjabbers.com/1693205716_444/third-party/pj_jquery/1.11.2/pjQuery.min.js", function () {
+                    window.pjQ.$.browser = {msie: isMSIE()};
+                    loadScript("https://demo.phpjabbers.com/1693205716_444/third-party/pj_jquery_ui/1.9.2/js/pjQuery-ui.custom.min.js", function () {
+                        loadScript("https://demo.phpjabbers.com/1693205716_444/third-party/pj_validate/1.10.0/pjQuery.validate.min.js", function () {
+                            loadScript("https://demo.phpjabbers.com/1693205716_444/third-party/pj_bootstrap/3.3.2/pjQuery.bootstrap.min.js", function () {
+                                loadScript("https://demo.phpjabbers.com/1693205716_444/third-party/pj_bootstrap_datetimepicker/4.17.37/moment-with-locales.min.js", function () {
+                                    loadScript("https://demo.phpjabbers.com/1693205716_444/third-party/pj_validate/1.10.0/pjQuery.additional-methods.min.js", function () {
+                                        loadScript("https://demo.phpjabbers.com/1693205716_444/third-party/pj_bootstrap_datetimepicker/4.17.37/pjQuery.bootstrap-datetimepicker.min.js", function () {
+                                            loadScript("https://demo.phpjabbers.com/1693205716_444/app/web/js/pjFront.js", function () {
+                                                myCR = CR(options);
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        })();</script>
+        <script type="text/javascript" src="index.php?controller=pjFront&amp;action=pjActionLoad"></script>
+        <script type="text/javascript"
+                src="https://demo.phpjabbers.com/1693205716_444/third-party/storage_polyfill/1.0.0/storagePolyfill.min.js"></script>
+    </div>
+{% endblock %}

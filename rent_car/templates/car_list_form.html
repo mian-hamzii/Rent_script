@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="container mt-2 border rounded px-0 section-width">
+        <div class="header py-3 ps-3 ">
+            <select class="form-select ms-2 h-75 w-auto stepSelect" aria-label="Default select example">
+                <option disabled>Step 1 - When And Where</option>
+                <option value="1" selected>Step 2 - Choose A Car</option>
+                <option value="2" disabled>Step 3 - Price And Extras</option>
+                <option value="3" disabled>Step 4 - Checkout</option>
+                <option value="4" disabled>Step 5 - Finish</option>
+            </select>
+        </div>
+        <div class="panel-body pjCrBody">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <strong for="">Filter by:</strong>
+                            <select name="crTabsSelect" id="crTabsSelect" class="form-control crTabsSelect">
+                                <option selected="selected" value="all">View All</option>
+                                {% for types in cars %}
+                                    <option value="{{ types.type }}">{{ types.type }}</option>
+                                {% endfor %}
+                            </select>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.form-inline -->
+                </div><!-- /.col-lg-6 col-md-6 col-sm-6 col-xs-6 -->
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-inline pull-right">
+                        <div class="form-group">
+                            <strong>Sort by: </strong>
+                            <select id="sort" name="sort" class="form-control crSort">
+                                <option value="default" {% if sort_option == 'default' %}{% endif %}>Default</option>
+                                <option value="price_desc" {% if sort_option == 'price_desc' %}{% endif %}>Price
+                                    (High to Low)
+                                </option>
+                                <option id="price_asc" value="{% url 'price' %}" {% if sort_option == 'price_asc' %}{% endif %}>Price
+                                    (Low to High)
+                                </option>
+                            </select>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.form-inline -->
+                </div><!-- /.col-lg-6 col-md-6 col-sm-6 col-xs-6 -->
+            </div>
+            <div class="row m-0 py-3">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-xs ps-0 ">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Booking details</h1><!-- /.panel-title -->
+                        </div><!-- /.panel-heading -->
+
+                        <div class="panel-body">
+                            <p class="clearfix">
+                                <strong>Time and Place</strong>
+                                <a href="{% url 'index' %}" id="crBtnWhen"
+                                   class="pull-right text-capitalize pjCrColorPrimary">Change</a>
+                            </p>
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12"><span
+                                        class="text-muted">Pick-up:</span>
+                                </div>
+                                <!-- /.col-lg-5 col-md-5 col-sm-5 col-xs-12 -->
+
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                    {{ form_data.pickup_location }}<br>
+                                    {{ form_data.pickup_date }}, {{ form_data.pickup_time }}
+                                </div><!-- /.col-lg-7 col-md-7 col-sm-7 col-xs-12 -->
+                            </div><!-- /.row -->
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12"><span
+                                        class="text-muted">Return:</span>
+                                </div>
+                                <!-- /.col-lg-5 col-md-5 col-sm-5 col-xs-12 -->
+
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                    {{ form_data.return_location }}<br>
+                                    {{ form_data.return_date }}, {{ form_data.return_time }}
+                                </div><!-- /.col-lg-7 col-md-7 col-sm-7 col-xs-12 -->
+                            </div><!-- /.row -->
+
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12"><span
+                                        class="text-muted">Rental Duration:</span></div>
+                                <!-- /.col-lg-5 col-md-5 col-sm-5 col-xs-12 -->
+
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">{{ form_data.days }}
+                                    day{{ form_data.days|pluralize:'s' }}</div>
+                                <!-- /.col-lg-7 col-md-7 col-sm-7 col-xs-12 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.panel-body -->
+                    </div><!-- /.panel panel-default -->
+                </div>
+
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pjCrPanelRight ps-3">
+                    {% for car in cars %}
+                        <ul class="list-group" data-car-type="{{ car.type }}" data-price="{{ car.price_per_day }}">
+                            <li class="list-group-item pjCrProduct">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ps-0">
+                                        <img src="{{ car.image.url }}"
+                                             alt="" class="img-responsive">
+                                    </div><!-- /.col-lg-4 col-md-4 col-sm-4 col-xs-12 -->
+
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        <br>
+                                        <p class="lead">{{ car.type }}</p>
+
+                                        <dl>
+                                            <dt>Example of this range:</dt>
+                                            <dd>{{ car.type_rate.first.make }}</dd>
+                                        </dl>
+
+                                        <ul class="list-inline">
+                                            <li class="bg-primary pjCrBgPrimary" title="Number of passengers">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"><i
+                                                class="fa fa-user"></i></span>
+
+                                                {{ car.num_of_passenger }}
+                                            </li>
+
+                                            <li class="bg-primary pjCrBgPrimary" title="Number of bags allowed">
+                                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"><i
+                                                class="fa fa-suitcase"></i></span>
+
+                                                {{ car.piece_of_bag }}
+                                            </li>
+
+                                            <li class="bg-primary pjCrBgPrimary" title="Number of doors">
+                                        <span class="glyphicon glyphicon-modal-window" aria-hidden="true"><i
+                                                class="fa fa-taxi"></i></span>
+
+                                                {{ car.num_of_door }}
+                                            </li>
+
+                                            <li class="bg-primary pjCrBgPrimary" title="Transmission">
+                                        <span class="glyphicon glyphicon-cog" aria-hidden="true"><i
+                                                class="fa fa-cog"></i></span>
+
+                                                {{ car.transmission }}
+                                            </li>
+                                        </ul><!-- /.list-inline -->
+
+                                        <p>{{ car.description }}</p>
+                                    </div><!-- /.col-lg-5 col-md-5 col-sm-5 col-xs-12 -->
+
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <br>
+
+                                        <div class="well well-sm text-center">
+                                            <p>Total Price:</p>
+                                            <p><strong>{{ car.price_per_day }} $</strong></p>
+                                        </div><!-- /.well well-sm text-center -->
+                                        <form id="car-form">
+                                            {% csrf_token %}
+                                            <input type="hidden" value="{{ car.id }}" id="car-id">
+                                            <input type="hidden" value="{% url 'car-list' %}" id="car-url">
+                                            <button type="submit"
+                                                    class="btn btn-default btn-block text-uppercase pjCrBtntDefault crBtnContinue"
+                                                    id="car-submit">
+                                                Continue
+                                            </button>
+                                            {#                                            <a href="">Continue</a>#}
+                                        </form>
+                                    </div><!-- /.col-lg-3 col-md-3 col-sm-3 col-xs-12 -->
+                                </div><!-- /.row -->
+                            </li><!-- /.list-group-item pjCrProduct -->
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function () {
+            $('#crTabsSelect').change(function () {
+                var selectedType = $(this).val();
+                console.log(selectedType)
+
+                if (selectedType === 'all') {
+                    $('.list-group').show();  // Show all cars if 'View All' is selected
+                } else {
+
+
+                    $('.list-group').hide();  // Hide all cars
+
+                    // Show cars with the selected type
+                    $('.list-group[data-car-type="' + selectedType + '"]').show();
+                }
+            });
+        });
+
+
+    </script>
+
+{% endblock %}
